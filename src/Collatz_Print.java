@@ -2,7 +2,7 @@ public class Collatz_Print
 {
 	public static void main(String args[])
 	{
-		int terms = 100;
+		int terms = 1000000;
 		System.out.println(terms+": ");
 		for(int i=2;i<=terms;i++)
 		{
