@@ -7,9 +7,11 @@ public class Collatz_File_Print
 		int terms=1000;
 		String file_name="C:\\Users\\Janeway\\Dropbox\\Github\\Collatz_Learning_And_Testing\\FileOutputTest\\Collatz_Out.txt";
 		WriteFile data = new WriteFile(file_name, true);
+		data.WriteToFile("Program Start: "+String.valueOf(System.currentTimeMillis()));
 		for(int i=2;i<=terms;i++)
 		{
-			data.WriteToFile("Seed: "+String.valueOf(i));
+			data.WriteToFile("Seed: "+i);
+			data.WriteToFile("Seed Start: "+String.valueOf(System.currentTimeMillis()));
 			int this_term=i;
 			while(this_term!=1)
 			{
@@ -25,6 +27,8 @@ public class Collatz_File_Print
 					data.WriteToFile(String.valueOf(this_term));
 				}
 			}
+			data.WriteToFile("Seed End: "+String.valueOf(System.currentTimeMillis()));
 		}
+		data.WriteToFile("Program End: "+String.valueOf(System.currentTimeMillis()));
 	}
 }
