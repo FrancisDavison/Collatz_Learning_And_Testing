@@ -4,8 +4,8 @@ public class Collatz_File_Print
 {
 	public static void main(String args[]) throws IOException
 	{
-		int terms=10000;
-		String file_name="C:\\Users\\Janeway\\Dropbox\\Github\\Collatz_Learning_And_Testing\\FileOutputTest\\Collatz_Out.txt";
+		int terms=10;
+		String file_name=".\\FileOutputTest\\Collatz_Out.txt";
 		WriteFile data = new WriteFile(file_name, true);
 		data.WriteToFile("Program Start: "+System.nanoTime());
 		for(int i=2;i<=terms;i++)
