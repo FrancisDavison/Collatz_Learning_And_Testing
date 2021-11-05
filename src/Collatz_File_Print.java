@@ -1,4 +1,4 @@
-import java.io.*;
+import java.io.IOException;
 
 public class Collatz_File_Print
 {
