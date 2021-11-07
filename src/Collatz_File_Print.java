@@ -1,15 +1,16 @@
-import java.io.IOException;
+import java.io.*;
 
 public class Collatz_File_Print
 {
 	public static void main(String args[]) throws IOException
 	{
-		int terms=10;
+		int terms=1000000;
 		String file_name=".\\FileOutputTest\\Collatz_Out.txt";
 		WriteFile data = new WriteFile(file_name, true);
 		data.WriteToFile("Program Start: "+System.nanoTime());
 		for(int i=2;i<=terms;i++)
 		{
+			System.out.println("Seed: "+i);
 			data.WriteToFile("Seed: "+i);
 			data.WriteToFile("Seed Start: "+System.nanoTime());
 			int this_term=i;
