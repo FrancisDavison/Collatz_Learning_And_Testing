@@ -6,7 +6,7 @@ public class CSV_Write_Int_Array
 	public static void main(String args[])
 	{
 		String File_Path="C:\\Users\\Janeway\\Dropbox\\Github\\Collatz_Learning_And_Testing\\FileOutputTest\\CSVTest.csv";
-		String[] Seed_Data={"17890",String.valueOf(System.nanoTime())};
+		String[] Seed_Data={"178999",String.valueOf(System.nanoTime())};
 		WriteCSVIntArray(File_Path,Seed_Data);
 	}
 	
