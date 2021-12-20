@@ -1,2 +1,2 @@
 # Collatz_Learning_And_Testing
-Development Repo for RPi Cluster Project
+Testing, Learning and Experimentation repo for RPi Cluster Project
