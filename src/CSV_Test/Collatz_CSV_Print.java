@@ -30,5 +30,4 @@ public class Collatz_CSV_Print
 		}
 		//add Program end nanoTime to CSV
 	}
-	
 }

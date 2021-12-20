@@ -1,5 +1,5 @@
-package CSV_Test;
 //Lifted From: https://www.homeandlearn.co.uk/java/write_to_textfile.html
+package CSV_Test;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -9,11 +9,6 @@ public class WriteFile
 {
 	private String path;
 	private boolean append_to_file = false;
-	
-	public WriteFile(String file_path)
-	{
-		path = file_path;
-	}
 	
 	public WriteFile(String file_path, boolean append_value)
 	{
