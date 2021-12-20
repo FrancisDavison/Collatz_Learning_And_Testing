@@ -9,9 +9,8 @@ public class Collatz_CSV_Print
 		System.out.println("Program Start: "+String.valueOf(System.nanoTime()));
 		for(int i=2;i<=terms;i++)
 		{
-			String File_Path="C:\\Users\\Janeway\\Dropbox\\Github\\Collatz_Learning_And_Testing\\CSVOutTest\\"+String.valueOf(i)+".csv";
+			String File_Path=".\\CSVOutTest\\"+String.valueOf(i)+".csv";
 			File file = new File(File_Path);
-			System.out.println("Create File");
 			try
 			{
 				FileWriter OutputFile = new FileWriter(file); //Create FileWriter object with file as parameter
