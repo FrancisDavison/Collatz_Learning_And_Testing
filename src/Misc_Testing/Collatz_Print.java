@@ -1,3 +1,4 @@
+package Misc_Testing;
 public class Collatz_Print
 {
 	public static void main(String args[])
