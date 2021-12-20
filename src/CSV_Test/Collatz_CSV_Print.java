@@ -6,7 +6,6 @@ public class Collatz_CSV_Print
 	public static void main(String args[])
 	{
 		int terms=10;
-		System.out.println("Program Start: "+String.valueOf(System.nanoTime()));
 		for(int i=2;i<=terms;i++)
 		{
 			String File_Path=".\\CSVOutTest\\"+String.valueOf(i)+".csv";
