@@ -3,7 +3,7 @@ import java.io.*;
 import com.opencsv.*;
 public class Collatz_CSV_Print
 {
-	public static void main(String args[]) throws IOException
+	public static void main(String args[])
 	{
 		int terms=10;
 		System.out.println("Program Start: "+String.valueOf(System.nanoTime()));
@@ -14,66 +14,42 @@ public class Collatz_CSV_Print
 			System.out.println("Create File");
 			try
 			{
-				//Create FileWriter object with file as parameter
-				FileWriter OutputFile = new FileWriter(file);
-				System.out.println("Create FileWriter Object with file as parameter");
+				FileWriter OutputFile = new FileWriter(file); //Create FileWriter object with file as parameter
 				
-				//Create CSVWriter object with filewriter object as parameter
-				CSVWriter writer = new CSVWriter(OutputFile);
-				System.out.println("Create CSVWriter object with filewriter as parameter");
+				CSVWriter writer = new CSVWriter(OutputFile); //Create CSVWriter object with filewriter object as parameter
 				
-				//Add Header to CSV
-				String[] header = {"Intermediary Value","nanoTime"};
-				writer.writeNext(header);
-				System.out.println("Write headers to file");
+				String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
+				writer.writeNext(header); //Add Header to CSV
 				
-				int This_Term=i;
-				String[] Seed_Data_Temp={String.valueOf(i),String.valueOf(System.nanoTime())};
-				writer.writeNext(Seed_Data_Temp);
-				System.out.println("Write initial seed data to file ");
-				String[] Intermediary_Data_Temp={"",""};
+				int This_Term=i; //Create and initialise This_Term variable for tracking current seed number
+				String[] Seed_Data_Temp={String.valueOf(i),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
+				writer.writeNext(Seed_Data_Temp); //Write Seed_Data_Temp array to CSV
+				String[] Intermediary_Data_Temp={"",""}; //Create Intermediary_Data_Temp array and leave empty so it can be used for all intermediary values later
 				while(This_Term!=1)
 				{
-					if(This_Term%2!=0)
+					if(This_Term%2!=0) //If This_Term is odd:
 					{
-						This_Term=(3*This_Term)+1;
-						//add Intermediary number + nanoTime to CSV
-						Intermediary_Data_Temp[0]=String.valueOf(This_Term);
-						Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime());
-						writer.writeNext(Intermediary_Data_Temp);
+						This_Term=(3*This_Term)+1; //Multiply This_Term by 3 and add 1
+						Intermediary_Data_Temp[0]=String.valueOf(This_Term); //Add This_Term to Intermediary_Data_Temp array at position 0
+						Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime()); //Add nanoTime to Intermediary_Data_Temp at position 1
+						writer.writeNext(Intermediary_Data_Temp); //Write Intermediary_Data_Temp to CSV
 					}
-					else
+					else //Else (If This_Term is even)
 					{
-						This_Term=This_Term/2;
-						//add Intermediary number + nanoTime to CSV
-						Intermediary_Data_Temp[0]=String.valueOf(This_Term);
-						Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime());
-						writer.writeNext(Intermediary_Data_Temp);
+						This_Term=This_Term/2; //Devide This_Term by 2
+						Intermediary_Data_Temp[0]=String.valueOf(This_Term); //Add This_Term to Intermediary_Data_Temp array at position 0
+						Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime()); //Add nanoTime to Intermediary_Data_Temp at position 1
+						writer.writeNext(Intermediary_Data_Temp); ///Write Intermediary_Data_Temp to CSV
 					}
 				}
-				writer.close();
+				writer.close(); //Close Writer Object
 			}
-			catch(IOException e)
+			catch(IOException e) //Catch IOException as e
 			{
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.printStackTrace(); //Print Exception for debug
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			//add Seed number and nanoTime to CSV
-			
 		}
 	}
 }
-//Name CSV with seed number
-//Calculate this_Term
-//Write this_term and nanoTime to String array
-//Write String array to CSV
+
