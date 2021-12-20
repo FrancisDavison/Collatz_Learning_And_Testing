@@ -3,7 +3,7 @@ public class Collatz_Print
 	public static void main(String args[])
 	{
 		int terms = 100;
-		System.out.println(terms+": ");
+		System.out.println("Number of Terms: "+terms);
 		for(int i=2;i<=terms;i++)
 		{
 			System.out.println("");
