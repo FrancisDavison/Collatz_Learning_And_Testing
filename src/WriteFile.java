@@ -1,5 +1,5 @@
 //Lifted From: https://www.homeandlearn.co.uk/java/write_to_textfile.html
-package CSV_Test;
+
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
