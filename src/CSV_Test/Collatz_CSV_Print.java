@@ -52,4 +52,3 @@ public class Collatz_CSV_Print
 		}
 	}
 }
-
