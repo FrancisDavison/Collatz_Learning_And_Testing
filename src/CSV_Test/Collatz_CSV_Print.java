@@ -9,7 +9,7 @@ public class Collatz_CSV_Print
 		for(int i=2;i<=terms;i++)
 		{
 			String File_Path=".\\CSVOutTest\\"+String.valueOf(i)+".csv";
-			File file = new File(File_Path);
+			File file = new File(File_Path); //Create new file object with File_Path as parameter
 			try
 			{
 				FileWriter OutputFile = new FileWriter(file); //Create FileWriter object with file as parameter
@@ -44,7 +44,6 @@ public class Collatz_CSV_Print
 			}
 			catch(IOException e) //Catch IOException as e
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace(); //Print Exception for debug
 			}
 		}
