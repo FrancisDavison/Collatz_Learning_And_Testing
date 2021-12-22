@@ -37,7 +37,7 @@ public class Collatz_CSV_Print
 						This_Term=This_Term/2; //Divide This_Term by 2
 						Intermediary_Data_Temp[0]=String.valueOf(This_Term); //Add This_Term to Intermediary_Data_Temp array at position 0
 						Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime()); //Add nanoTime to Intermediary_Data_Temp at position 1
-						writer.writeNext(Intermediary_Data_Temp); ///Write Intermediary_Data_Temp to CSV
+						writer.writeNext(Intermediary_Data_Temp); //Write Intermediary_Data_Temp to CSV
 					}
 				}
 				writer.close(); //Close Writer Object
