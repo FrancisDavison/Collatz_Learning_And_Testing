@@ -16,12 +16,22 @@ public class Seed_Array_Maker
 		Node_Names[0]="Node1";
 		System.out.println(Node_Names[0]);
 		
+		int[][] Seed_Table = new int[Compute_Nodes][];
+		
+		System.out.println(Arrays.deepToString(Seed_Table));
+		
 		
 		
 		
 		
 		
 	
+		
+		
+		
+		
+		
+		/*
 		HashMap<String,int[]> arraynames = new HashMap<String,int[]>();
 		arraynames.put("fruits", new int[10]);
 
@@ -29,6 +39,7 @@ public class Seed_Array_Maker
 		arraynames.get("fruits")[0] = 100;
 		
 		System.out.println(Arrays.toString(arraynames.get("fruits")));
+		*/
 		
 		Input_Nodes.close();
 		Input_Seeds.close();
