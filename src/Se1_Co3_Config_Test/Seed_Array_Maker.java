@@ -41,12 +41,6 @@ public class Seed_Array_Maker
 			}
 		}
 		
-		
-		
-		
-		
-		
-		
 		for(int a=0;a<Rows;a++) //This snippet will just print the Seed_Table out in a more understandable format, only for testing
 		{
 			System.out.println(Arrays.toString(Seed_Table[a]));
