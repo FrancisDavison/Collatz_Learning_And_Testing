@@ -4,19 +4,23 @@ public class Seed_Array_Maker
 {
 	public static void main(String args[])
 	{
-		Scanner Input_Nodes = new Scanner(System.in);
-		Scanner Input_Seeds = new Scanner(System.in);
-		System.out.print("Input number of compute nodes: ");
-		int Compute_Nodes = Input_Nodes.nextInt();
-		System.out.println("");
-		System.out.print("Input number of seeds: ");
-		int Seeds = Input_Seeds.nextInt();
+		Scanner Input_Nodes = new Scanner(System.in); //Starting input scanner to get number of Input Nodes from user
+		Scanner Input_Seeds = new Scanner(System.in); //Starting input scanner to get number of Input Seeds from user
+		System.out.print("Input number of compute nodes: "); //Asking user
+		int Compute_Nodes = Input_Nodes.nextInt(); //Saving user input for number of compute nodes as Compute_Nodes
+		System.out.println(""); //Adding a line, just makes it look a little nicer
+		System.out.print("Input number of seeds: "); //Asking user
+		int Seeds = Input_Seeds.nextInt(); //Saving user input for number of seeds as Seeds
 		
 		String[] Node_Names = new String[Compute_Nodes];
 		Node_Names[0]="Node1";
 		System.out.println(Node_Names[0]);
+		int Rows = Compute_Nodes;
+		int Seeds_Remainder = Seeds%Compute_Nodes;
+		int Columns = ((Seeds+Seeds_Remainder)/(Compute_Nodes));
+		System.out.println(Columns);
 		
-		int[][] Seed_Table = new int[Compute_Nodes][];
+		int[][] Seed_Table = new int[Rows][Columns];
 		
 		System.out.println(Arrays.deepToString(Seed_Table));
 		
