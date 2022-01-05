@@ -18,7 +18,7 @@ public class Seed_Array_Maker
 		
 		int Rows = Compute_Nodes; //Sets the number of rows in Seed_Table array to number of compute nodes, so each node has one row and all seeds for that node are stored only in that row
 		int Seeds_Remainder = Seeds%Compute_Nodes; //Calculating Seeds_Remainder
-		int Columns = ((Seeds+Seeds_Remainder)/(Compute_Nodes))+1; //Calculating number of columns using seeds+seeds remainder, this allows there to always be an integer number of columns and prevents the code from exploding
+		int Columns = ((Seeds+Seeds_Remainder)/(Compute_Nodes))+2; //Calculating number of columns using seeds+seeds remainder, this allows there to always be an integer number of columns and prevents the code from exploding
 		int[][] Seed_Table = new int[Rows][Columns]; //Create Seed_Table array of integers, this will store all seeds needed in the computation, will need to test maximum size
 		
 		//Backfill final row with -1
@@ -34,7 +34,7 @@ public class Seed_Array_Maker
 			{
 				Seed_Table[x][w]=Current_Seed;
 				Current_Seed+=1;
-				if(Current_Seed==Seeds)
+				if(Current_Seed==Seeds+1)
 				{
 					break;
 				}
