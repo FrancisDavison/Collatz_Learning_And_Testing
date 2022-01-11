@@ -21,7 +21,7 @@ public class Seed_Array_Maker
 		System.out.println("Seeds&Compute_Nodes: "+Seeds_Remainder);
 		//int Columns = ((Seeds+Seeds_Remainder)/(Compute_Nodes))+2; //Calculating number of columns using seeds+seeds remainder, this allows there to always be an integer number of columns and prevents the code from exploding
 		int Columns; //creating the Columns variable to dictate the number of columns in the Seed_Array
-		if((Seeds-1)%Compute_Nodes==0) //If  ==0, then only add one extra column to array
+		if((Seeds-1)%Compute_Nodes==0||Seeds%Compute_Nodes==0) //If  ==0, then only add one extra column to array
 		{
 			Columns=((Seeds-(Seeds%Compute_Nodes))/Compute_Nodes)+1; //Calculates number of columns needed for given number of seeds
 		}
