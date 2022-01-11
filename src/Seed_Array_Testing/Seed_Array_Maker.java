@@ -11,11 +11,6 @@ public class Seed_Array_Maker
 		System.out.println(); //Adding a line, just makes it look a little nicer
 		System.out.print("Input Maximum Seed: "); //Asking user
 		int Seeds = Input_Seeds.nextInt(); //Saving user input for number of seeds as Seeds
-		
-		//String[] Node_Names = new String[Compute_Nodes]; //Setting up String array to store Compute Node hostnames
-		//Node_Names[0]="Node1"; //Adding test hostname to array
-		//System.out.println(Node_Names[0]);//Print array, just for testing
-		
 		int Rows = Compute_Nodes; //Sets the number of rows in Seed_Table array to number of compute nodes, so each node has one row and all seeds for that node are stored only in that row
 		int Seeds_Remainder = Seeds%Compute_Nodes; //Calculating Seeds_Remainder
 		System.out.println("Seeds&Compute_Nodes: "+Seeds_Remainder);
