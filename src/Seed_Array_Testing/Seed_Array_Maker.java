@@ -24,15 +24,12 @@ public class Seed_Array_Maker
 		{
 			Columns=((Seeds-(Seeds%Compute_Nodes))/Compute_Nodes)+2; //Calculates number of columns needed for given number of seeds
 		}
-		
 		int[][] Seed_Table = new int[Rows][Columns]; //Create Seed_Table array of integers, this will store all seeds needed in the computation, will need to test maximum size
-		
 		//Backfill final row with -1
 		for(int i=0;i<Rows;i++) //Counter
 		{
 			Seed_Table[i][Columns-1]=-1; //Setting each cell from Top row to bottom row, in final column to -1
 		}
-		
 		int Current_Seed=2; //Sets starting seed to 2, as using start seed of 1 will not produce any sequence
 		for(int w=0;w<(Columns-1);w++) //Counts Columns
 		{
@@ -46,14 +43,11 @@ public class Seed_Array_Maker
 				Current_Seed+=1; //Increments Current_Seed counter
 			}
 		}
-		
 		for(int a=0;a<Rows;a++) //This snippet will just print the Seed_Table out in a more understandable format, only for testing
 		{
 			System.out.println(Arrays.toString(Seed_Table[a]));
 		}
-		
 		Input_Nodes.close(); //Close input scanner for Input_Nodes
 		Input_Seeds.close(); //Close input scanner for Input_Seeds
 	}
-	
 }
