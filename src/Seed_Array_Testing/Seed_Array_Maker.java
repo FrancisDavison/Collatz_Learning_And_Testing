@@ -1,4 +1,4 @@
-package Se1_Co3_Config_Test;
+package Seed_Array_Testing;
 import java.util.*;
 public class Seed_Array_Maker
 {
