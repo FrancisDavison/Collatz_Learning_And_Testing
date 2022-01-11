@@ -13,8 +13,7 @@ public class Seed_Array_Maker
 		int Seeds = Input_Seeds.nextInt(); //Saving user input for number of seeds as Seeds
 		int Rows = Compute_Nodes; //Sets the number of rows in Seed_Table array to number of compute nodes, so each node has one row and all seeds for that node are stored only in that row
 		int Seeds_Remainder = Seeds%Compute_Nodes; //Calculating Seeds_Remainder
-		System.out.println("Seeds&Compute_Nodes: "+Seeds_Remainder);
-		//int Columns = ((Seeds+Seeds_Remainder)/(Compute_Nodes))+2; //Calculating number of columns using seeds+seeds remainder, this allows there to always be an integer number of columns and prevents the code from exploding
+		System.out.println("Seeds&Compute_Nodes: "+Seeds_Remainder);//int Columns = ((Seeds+Seeds_Remainder)/(Compute_Nodes))+2; //Calculating number of columns using seeds+seeds remainder, this allows there to always be an integer number of columns and prevents the code from exploding
 		int Columns; //creating the Columns variable to dictate the number of columns in the Seed_Array
 		if((Seeds-1)%Compute_Nodes==0||Seeds%Compute_Nodes==0) //If  ==0, then only add one extra column to array
 		{
