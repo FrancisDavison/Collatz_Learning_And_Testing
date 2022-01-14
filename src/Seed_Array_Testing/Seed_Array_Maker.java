@@ -36,7 +36,7 @@ public class Seed_Array_Maker
 			{
 				if(Current_Seed==Seeds+1) //breaks loop at Current_Seed=Seeds+1 as Current_Seed is increased at end of loop
 				{
-					break;
+					break; //break loop if ^ true
 				}
 				Seed_Table[x][w]=Current_Seed; //Sets cell to value of Current_Seed counter
 				Current_Seed+=1; //Increments Current_Seed counter
