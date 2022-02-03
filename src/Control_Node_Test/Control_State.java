@@ -28,4 +28,25 @@ public class Control_State
 		Current_Access=true;
 		System.out.println(me.getName()+" got a lock!");
 	}
+	//Release the lock when thread has finished
+	public synchronized void ReleaseLock()
+	{
+		Current_Access=false;
+		notifyAll();
+		Thread me=Thread.currentThread();
+		System.out.println(me.getName()+" released a lock");
+	}
+	//Issue seed to thread that currently has lock
+	public synchronized String ProcessInput(String Thread_Name, int Message)
+	{
+		//This is where the server will issue the seed to the compute node
+		//Once seed has been sent, thread can be released and new connection dealt with
+		
+		
+		
+		
+		//=================================================================
+		String Out = "";
+		return Out;
+	}
 }
