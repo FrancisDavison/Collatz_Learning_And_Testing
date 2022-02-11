@@ -20,6 +20,7 @@ public class Control_Thread extends Thread
 	{
 		try
 		{
+			System.out.println(Control_Server_Thread_Name+"  initializing");
 			
 		}
 		catch(IOException e)
