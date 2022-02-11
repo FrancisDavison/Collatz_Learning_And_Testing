@@ -32,7 +32,7 @@ public class Control_Thread extends Thread
 					Control_State_Object.AcquireLock();
 					OutputLine=Control_State_Object.ProcessInput(My_Control_Server_Thread_Name, InputLine);
 					out.println(OutputLine);
-					My_Control_Server_Thread_Name.ReleaseLock();
+					Control_State_Object.ReleaseLock();
 				}
 				catch(InterruptedException e)
 				{

@@ -37,7 +37,7 @@ public class Control_State
 		System.out.println(me.getName()+" released a lock");
 	}
 	//Issue seed to thread that currently has lock
-	public synchronized String ProcessInput(String Thread_Name, int Message)
+	public synchronized String ProcessInput(String Thread_Name, String Message)
 	{
 		//This is where the server will issue the seed to the compute node
 		//Once seed has been sent, thread can be released and new connection dealt with
