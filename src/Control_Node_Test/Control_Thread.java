@@ -20,11 +20,32 @@ public class Control_Thread extends Thread
 	{
 		try
 		{
-			System.out.println(Control_Server_Thread_Name+"  initializing");
+			System.out.println(My_Control_Server_Thread_Name+"  initializing");
+			PrintWriter out=new PrintWriter(Control_Socket.getOutputStream(), true);
+			BufferedReader in=new BufferedReader(new InputStreamReader(Control_Socket.getInputStream()));
+			String InputLine, OutputLine;
 			
+			while((InputLine=in.readLine())!=null)
+			{
+				try
+				{
+					Control_State_Object.AcquireLock();
+					OutputLine=Control_State_Object.ProcessInput(My_Control_Server_Thread_Name, InputLine);
+					out.println(OutputLine);
+					My_Control_Server_Thread_Name.ReleaseLock();
+				}
+				catch(InterruptedException e)
+				{
+					System.err.println("Failed to get lock when reading: "+e);
+				}
+			}
+			out.close();
+			in.close();
+			Control_Socket.close();
 		}
 		catch(IOException e)
 		{
+			e.printStackTrace();
 		}
 	}
 }
