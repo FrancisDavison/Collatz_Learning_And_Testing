@@ -20,7 +20,7 @@ public class Dummy_Compute_01
 		
 		catch(UnknownHostException e)
 		{
-			System.err.println("Dont know about host: localhost");
+			System.err.println("Don't know about host: localhost");
 			System.exit(1);
 		}
 		
@@ -34,7 +34,7 @@ public class Dummy_Compute_01
 		String From_Server;
 		String From_User;
 		
-		System.out.println("Initialised "+Compute_Node_Id+" client and I/O connections");
+		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
 		
 		while(true)
 		{
