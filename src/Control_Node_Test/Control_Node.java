@@ -3,7 +3,7 @@ import java.io.*;
 import java.net.*;
 public class Control_Node
 {
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException
 	{
 		ServerSocket Control_Socket=null; //Declare ControlSocket and set to null, allows the control node to
 		boolean listening=true; //Declares boolean listening as true, sets Server to default always listen on ports
