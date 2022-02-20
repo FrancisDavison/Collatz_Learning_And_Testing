@@ -1,5 +1,4 @@
 package Se01_Co15_Config_Test;
-
 public class Collatz_Server_State
 {
 	private Collatz_Server_State Shared_Objecct;
