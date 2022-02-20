@@ -34,7 +34,7 @@ public class Dummy_Compute_03
 		String From_Server;
 		String From_User;
 		
-		System.out.println("Initialised "+Compute_Node_Id+"I/O connections");
+		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
 		
 		while(true)
 		{

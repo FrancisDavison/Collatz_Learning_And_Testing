@@ -14,8 +14,8 @@ public class Control_Node
 		int[][] Seed_Table = new int[Rows][Columns];
 		//Seed Array Maker code goes here==========================================================================
 		
-		Control_State Shared_State_Object = new Control_State(Seed_Table);
 		
+		Control_State Shared_State_Object = new Control_State(Seed_Table);
 		try
 		{
 			Control_Socket = new ServerSocket(Control_Num);

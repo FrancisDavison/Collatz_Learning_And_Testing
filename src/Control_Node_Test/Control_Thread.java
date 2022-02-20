@@ -30,7 +30,7 @@ public class Control_Thread extends Thread
 				try
 				{
 					Control_State_Object.AcquireLock();
-					OutputLine=Control_State_Object.ProcessInput(My_Control_Server_Thread_Name, InputLine);
+					OutputLine=Control_State_Object.ProcessInput(InputLine);
 					out.println(OutputLine);
 					Control_State_Object.ReleaseLock();
 				}

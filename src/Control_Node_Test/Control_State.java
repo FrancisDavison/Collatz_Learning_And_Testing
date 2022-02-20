@@ -37,16 +37,24 @@ public class Control_State
 		System.out.println(me.getName()+" released a lock");
 	}
 	//Issue seed to thread that currently has lock
-	public synchronized String ProcessInput(String Thread_Name, String Message)
+	public synchronized String ProcessInput(String Input_Message)
 	{
-		//This is where the server will issue the seed to the compute node
-		//Once seed has been sent, thread can be released and new connection dealt with
+		String Node_Id="";
+		String Seed_Status="";
+		String New_Seed="";
+		System.out.println("Input Message: "+Input_Message);
+		//Take input of String Message and String Thread_Name as source?
+		String Output_Message=Input_Message;
+		Node_Id+=Input_Message.charAt(0);
+		Node_Id+=Input_Message.charAt(1);
+		Seed_Status+=Input_Message.charAt(2);
+		Seed_Status+=Input_Message.charAt(3);
+		New_Seed+=Input_Message.charAt(4);
+		New_Seed+=Input_Message.charAt(5);
 		
 		
+		System.out.println(Node_Id+" "+Seed_Status+" "+New_Seed);
 		
-		
-		//=================================================================
-		String Out = "";
-		return Out;
+		return Output_Message; //Just placeholder. Will sit inside else statements and not needed when code complete
 	}
 }
