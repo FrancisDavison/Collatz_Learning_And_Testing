@@ -43,7 +43,7 @@ public class Seed_Array_Maker_Fixed
 		{
 			Seed_Table[i][Columns-1]=-1; //Setting each cell from Top row to bottom row, in final column to -1
 		}
-		int Current_Seed=2; //Sets starting seed to 2, as using start seed of 1 will not produce any sequence
+		int Current_Seed=Min_Seed; //Sets starting seed to 2, as using start seed of 1 will not produce any sequence
 		for(int w=0;w<(Columns-1);w++) //Counts Columns
 		{
 			for(int x=0;x<Rows;x++) //Counts Rows
