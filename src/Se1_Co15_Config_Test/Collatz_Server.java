@@ -1,7 +1,7 @@
 package Se1_Co15_Config_Test;
 import java.io.*;
 import java.net.*;
-public class Control_Node
+public class Collatz_Server
 {
 	public static void main(String args[]) throws IOException
 	{
@@ -15,7 +15,7 @@ public class Control_Node
 		//Seed Array Maker code goes here==========================================================================
 		
 		
-		Control_State Shared_State_Object = new Control_State(Seed_Table);
+		Collatz_Server_State Shared_State_Object = new Collatz_Server_State(Seed_Table);
 		try
 		{
 			Control_Socket = new ServerSocket(Control_Num);
@@ -29,11 +29,11 @@ public class Control_Node
 		
 		while(listening)
 		{
-			new Control_Thread(Control_Socket.accept(), "Control_Thread_1", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_1", Shared_State_Object).start();
 			System.out.println("New control thread started");
-			new Control_Thread(Control_Socket.accept(), "Control_Thread_2", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_2", Shared_State_Object).start();
 			System.out.println("New control thread started");
-			new Control_Thread(Control_Socket.accept(), "Control_Thread_3", Shared_State_Object).start();
+			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_3", Shared_State_Object).start();
 			System.out.println("New control thread started");
 		}
 		Control_Socket.close();

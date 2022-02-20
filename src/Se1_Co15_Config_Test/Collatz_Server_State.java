@@ -1,14 +1,14 @@
 package Se1_Co15_Config_Test;
 
-public class Control_State
+public class Collatz_Server_State
 {
-	private Control_State Shared_Objecct;
+	private Collatz_Server_State Shared_Objecct;
 	private String Thread_Name;
 	private boolean Current_Access=false;
 	private int Waiting=0;
 	private int[][] Seed_Table;
 	//Construcor
-	Control_State(int[][] Seed_Table_In)
+	Collatz_Server_State(int[][] Seed_Table_In)
 	{
 		Seed_Table=Seed_Table_In;
 	}
