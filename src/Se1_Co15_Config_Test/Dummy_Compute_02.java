@@ -1,7 +1,7 @@
-package Se1_co15_Comm_Only_Test;
+package Se1_Co15_Config_Test;
 import java.io.*;
 import java.net.*;
-public class Dummy_Compute_03
+public class Dummy_Compute_02
 {
 	public static void main(String args[]) throws IOException
 	{
@@ -10,10 +10,10 @@ public class Dummy_Compute_03
 		BufferedReader in=null;
 		int Control_Socket_Num=4545;
 		String Control_Name="localhost";
-		String Compute_Node_Id="Summy_Compute_03";
+		String Compute_Node_Id="Dummy_Compute2";
 		try
 		{
-			Compute_Socket=new Socket(Control_Name, Control_Socket_Num);
+			Compute_Socket=new Socket(Control_Name,Control_Socket_Num);
 			out=new PrintWriter(Compute_Socket.getOutputStream(), true);
 			in=new BufferedReader(new InputStreamReader(Compute_Socket.getInputStream()));
 		}
@@ -45,7 +45,7 @@ public class Dummy_Compute_03
 				out.println(From_User);
 			}
 			From_Server=in.readLine();
-			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Contol Node");
+			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
 		}
 	}
 }

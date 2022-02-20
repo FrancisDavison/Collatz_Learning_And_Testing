@@ -1,4 +1,4 @@
-package Se1_co15_Comm_Only_Test;
+package Se1_Co15_Config_Test;
 
 public class Control_State
 {
