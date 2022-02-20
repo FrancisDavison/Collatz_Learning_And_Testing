@@ -1,4 +1,4 @@
-package Se1_Co15_Config_Test;
+package Se01_Co15_Config_Test;
 import java.io.*;
 import java.net.*;
 public class Collatz_Server_Thread extends Thread

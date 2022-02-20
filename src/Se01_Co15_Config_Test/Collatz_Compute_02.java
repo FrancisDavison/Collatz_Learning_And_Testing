@@ -1,7 +1,7 @@
-package Se1_Co15_Config_Test;
+package Se01_Co15_Config_Test;
 import java.io.*;
 import java.net.*;
-public class Collatz_Compute_01
+public class Collatz_Compute_02
 {
 	public static void main(String args[]) throws IOException
 	{
@@ -10,7 +10,7 @@ public class Collatz_Compute_01
 		BufferedReader in=null;
 		int Control_Socket_Num=4545;
 		String Control_Name="localhost";
-		String Compute_Node_Id="Collatz_Compute_01";
+		String Compute_Node_Id="Collatz_Compute_02";
 		try
 		{
 			Compute_Socket=new Socket(Control_Name,Control_Socket_Num);

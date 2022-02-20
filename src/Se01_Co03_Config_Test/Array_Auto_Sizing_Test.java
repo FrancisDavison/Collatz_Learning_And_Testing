@@ -1,4 +1,4 @@
-package Se1_Co3_Config_Test;
+package Se01_Co03_Config_Test;
 import java.util.*;
 public class Array_Auto_Sizing_Test
 {
