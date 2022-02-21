@@ -62,8 +62,6 @@ public class Collatz_Server
 			System.out.println("New control thread started");
 			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_15", Shared_State_Object).start();
 			System.out.println("New control thread started");
-			new Collatz_Server_Thread(Control_Socket.accept(), "Control_Thread_16", Shared_State_Object).start();
-			System.out.println("New control thread started");
 		}
 		Control_Socket.close();
 	}

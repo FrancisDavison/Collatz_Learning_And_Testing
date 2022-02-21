@@ -63,5 +63,6 @@ public class Seed_Table_Generator
 		Input_Nodes.close();
 		Input_Start_Seed.close();
 		Input_Seed_Num.close();
+		Seed_Table_Complete=true; //Seed_Table_Complete, boolean, declared in Control Node class
 	}
 }
