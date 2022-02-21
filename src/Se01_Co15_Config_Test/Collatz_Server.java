@@ -26,7 +26,7 @@ public class Collatz_Server
 		}
 		catch(IOException e)
 		{
-			System.err.println("Could not start Control_Node on port: "+Control_Num);
+			System.err.println("Could not start Control_Node on port: "+Control_Num); 
 			System.exit(1);
 		}
 		System.out.println(Control_Name+" started");
