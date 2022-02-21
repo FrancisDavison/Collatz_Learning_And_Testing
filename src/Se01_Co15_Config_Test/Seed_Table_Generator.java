@@ -1,4 +1,4 @@
-package Seed_Array_Testing;
+package Se01_Co15_Config_Test;
 import java.util.*;
 public class Seed_Table_Generator
 {

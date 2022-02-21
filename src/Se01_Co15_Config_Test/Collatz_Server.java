@@ -1,24 +1,18 @@
 package Se01_Co15_Config_Test;
 import java.io.*;
 import java.net.*;
+import java.util.Arrays;
+import java.util.Scanner;
 public class Collatz_Server
 {
 	public static void main(String args[]) throws IOException
 	{
 		ServerSocket Control_Socket=null; //Declare ControlSocket and set to null, allows the control node to
 		boolean listening=true; //Declares boolean listening as true, sets Server to default always listen on ports
-		boolean Seed_Table_Complete=false;
 		String Control_Name="Control"; //Declares ControlName variable and sets equal to Control, this names the server
 		int Control_Num=4545; //Declares ControlNum variable, this sets the socket number that the server will listen on
-		int Rows=1;
-		int Columns=1;
-		int[][] Seed_Table = new int[Rows][Columns];
-		while(!Seed_Table_Complete)
-		{
-			//Seed Table Maker
-			
-		}
-		
+		int[][] Seed_Table=Seed_Table_Generator.Seed_Table_Engine();
+		System.out.println("Complete"+Arrays.deepToString(Seed_Table));
 		Collatz_Server_State Shared_State_Object = new Collatz_Server_State(Seed_Table);
 		try
 		{
