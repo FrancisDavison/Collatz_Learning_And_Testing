@@ -12,7 +12,6 @@ public class Collatz_Server
 		String Control_Name="Control"; //Declares ControlName variable and sets equal to Control, this names the server
 		int Control_Num=4545; //Declares ControlNum variable, this sets the socket number that the server will listen on
 		int[][] Seed_Table=Seed_Table_Generator.Seed_Table_Engine();
-		System.out.println("Complete"+Arrays.deepToString(Seed_Table));
 		Collatz_Server_State Shared_State_Object = new Collatz_Server_State(Seed_Table);
 		try
 		{
