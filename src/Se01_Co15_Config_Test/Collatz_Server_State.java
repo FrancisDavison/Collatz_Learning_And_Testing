@@ -1,4 +1,5 @@
 package Se01_Co15_Config_Test;
+import java.util.*;
 public class Collatz_Server_State
 {
 	private Collatz_Server_State Shared_Objecct;
@@ -50,10 +51,8 @@ public class Collatz_Server_State
 		Seed_Status+=Input_Message.charAt(3);
 		New_Seed+=Input_Message.charAt(4);
 		New_Seed+=Input_Message.charAt(5);
-		
-		
 		System.out.println(Node_Id+" "+Seed_Status+" "+New_Seed);
-		
+		//System.out.println("ProcessInput Array Test: "+Arrays.deepToString(Seed_Table)); //Just for testing
 		return Output_Message; //Just placeholder. Will sit inside else statements and not needed when code complete
 	}
 }
