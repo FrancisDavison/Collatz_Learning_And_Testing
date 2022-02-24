@@ -39,20 +39,45 @@ public class Collatz_Server_State
 	//Issue seed to thread that currently has lock
 	public synchronized String ProcessInput(String Input_Message)
 	{
-		String Node_Id="";
-		String Seed_Status="";
-		String New_Seed="";
+		int[] Seed_Cache=new int[15];
+		String Raw_Node_Id="";
+		String Raw_Seed_Status="";
+		String Raw_Live_Index="";
+		String Raw_New_Seed="";
+		String Output_Message=null;
 		System.out.println("Input Message: "+Input_Message);
-		//Take input of String Message and String Thread_Name as source?
-		String Output_Message=Input_Message;
-		Node_Id+=Input_Message.charAt(0);
-		Node_Id+=Input_Message.charAt(1);
-		Seed_Status+=Input_Message.charAt(2);
-		Seed_Status+=Input_Message.charAt(3);
-		New_Seed+=Input_Message.charAt(4);
-		New_Seed+=Input_Message.charAt(5);
-		System.out.println(Node_Id+" "+Seed_Status+" "+New_Seed);
+		//Take input of String Message and String Thread_Name as source? No
+		Raw_Node_Id+=Input_Message.charAt(0);
+		Raw_Node_Id+=Input_Message.charAt(1);
+		int Node_Id=Integer.valueOf(Raw_Node_Id);
+		Raw_Seed_Status+=Input_Message.charAt(2);
+		Raw_Seed_Status+=Input_Message.charAt(3);
+		int Seed_Status=Integer.valueOf(Raw_Seed_Status);
+		for(int i=4;i==11;i++)
+		{
+			Raw_Live_Index+=Input_Message.charAt(i);
+		}
+		int Live_Index=Integer.valueOf(Raw_Live_Index);
+		for(int j=12;j==Input_Message.length()-1;j++)
+		{
+			Raw_New_Seed+=Input_Message.charAt(j);
+		}
+		int New_Seed=Integer.valueOf(Raw_New_Seed);
+		System.out.println(Node_Id+" "+Seed_Status+" "+Live_Index+" "+New_Seed);
 		//System.out.println("ProcessInput Array Test: "+Arrays.deepToString(Seed_Table)); //Just for testing
-		return Output_Message; //Just placeholder. Will sit inside else statements and not needed when code complete
+		if(Seed_Status==0)
+		{
+			//re issue previous seed
+			New_Seed=Seed_Cache[Node_Id];
+			Seed_Status=10;
+			
+			return Output_Message;
+		}
+		else
+		{
+			
+			//issue new seed
+			return Output_Message;
+		}
 	}
 }
