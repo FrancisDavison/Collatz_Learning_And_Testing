@@ -39,6 +39,9 @@ public class Collatz_Server_State
 	//Issue seed to thread that currently has lock
 	public synchronized String ProcessInput(String Input_Message)
 	{
+		
+		
+		/*
 		int[] Seed_Cache=new int[15];
 		String Raw_Node_Id="";
 		String Raw_Seed_Status="";
@@ -79,5 +82,6 @@ public class Collatz_Server_State
 			//issue new seed
 			return Output_Message;
 		}
+		*/
 	}
 }
