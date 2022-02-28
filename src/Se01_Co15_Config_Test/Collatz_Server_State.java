@@ -42,30 +42,21 @@ public class Collatz_Server_State
 		String Output_To_Compute=null;
 		String Raw_Node_Id="";
 		String Raw_Seed_Status="";
-		String Raw_Live_Index="";
 		String Raw_Current_Seed="";
 		int Node_Id=0;
 		int Seed_Status=0;
-		int Live_Index=0;
 		int Current_Seed=0;
-		
+		int[] Live_Index=new int[16]; //use 16 as that is how many Pi's I have available
 		for(int a=0;a<=2;a++)
 		{
 			Raw_Node_Id+=Input_From_Compute.charAt(a);
 		}
 		Node_Id=Integer.valueOf(Raw_Node_Id);
-		
 		for(int b=3;b<=5;b++)
 		{
 			Raw_Seed_Status+=Input_From_Compute.charAt(b);
 		}
 		Seed_Status=Integer.valueOf(Raw_Seed_Status);
-		
-		for(int c=6;c<=12;c++)
-		{
-			Raw_Live_Index+=Input_From_Compute.charAt(c);
-		}
-		
 		for(int d=13;d<=21;d++)//Might not need this for input
 		{
 			Raw_Current_Seed+=Input_From_Compute.charAt(d);
@@ -78,19 +69,32 @@ public class Collatz_Server_State
 		if(Seed_Status==900)
 		{
 			//Previous compute failed, re-issue seed
+			Output_To_Compute=Input_From_Compute;
 			return Output_To_Compute;
 		}
 		
-		if(Seed_Status==911)
+		if(Seed_Status==911||Seed_Status==933)
 		{
 			//Previous compute passed, issue new seed
+			if(Seed_Status==933)
+			{
+				Seed_Status=911;
+			}
+			Current_Seed=Seed_Table[Node_Id-1][Live_Index[Node_Id-1]];
+			Live_Index[Node_Id-1]+=1;
+			Output_To_Compute=(String.valueOf(Node_Id))+(String.valueOf(Seed_Status))+(String.valueOf(Current_Seed));
 			return Output_To_Compute;
+		}
+		
+		if(Seed_Status==922)
+		{
 		}
 		
 		else
 		{
 			//Unknown error, exit
-			System.out.println("Unknown error occured");
+			System.err.println("Unknown error occured");
+			Output_To_Compute="UnknownError";
 			return Output_To_Compute;
 		}
 	}
