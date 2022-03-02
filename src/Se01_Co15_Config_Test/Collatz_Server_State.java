@@ -47,24 +47,24 @@ public class Collatz_Server_State
 		int Seed_Status=0;
 		int Current_Seed=0;
 		int[] Live_Index=new int[16]; //use 16 as that is how many Pi's I have available
+		
 		for(int a=0;a<=2;a++)
 		{
 			Raw_Node_Id+=Input_From_Compute.charAt(a);
 		}
 		Node_Id=Integer.valueOf(Raw_Node_Id);
+		
 		for(int b=3;b<=5;b++)
 		{
 			Raw_Seed_Status+=Input_From_Compute.charAt(b);
 		}
 		Seed_Status=Integer.valueOf(Raw_Seed_Status);
+		
 		for(int d=13;d<=21;d++)//Might not need this for input
 		{
 			Raw_Current_Seed+=Input_From_Compute.charAt(d);
 		}
 		Current_Seed=Integer.valueOf(Raw_Current_Seed);
-		
-		
-		
 		
 		if(Seed_Status==900)
 		{
@@ -88,6 +88,9 @@ public class Collatz_Server_State
 		
 		if(Seed_Status==922)
 		{
+			//Invalid message received, request same again
+			Output_To_Compute=Input_From_Compute;
+			return Output_To_Compute;
 		}
 		
 		else
