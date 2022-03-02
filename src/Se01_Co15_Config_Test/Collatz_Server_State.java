@@ -68,14 +68,14 @@ public class Collatz_Server_State
 		
 		if(Seed_Status==900)
 		{
-			//Previous compute failed, re-issue seed
+			//Previous compute failed, re-issue same seed again
 			Output_To_Compute=Input_From_Compute;
 			return Output_To_Compute;
 		}
 		
 		if(Seed_Status==911||Seed_Status==933)
 		{
-			//Previous compute passed, issue new seed
+			//Previous compute passed, issue next seed
 			if(Seed_Status==933)
 			{
 				Seed_Status=911;
@@ -88,14 +88,14 @@ public class Collatz_Server_State
 		
 		if(Seed_Status==922)
 		{
-			//Invalid message received, request same again
+			//Invalid message received, request same message again
 			Output_To_Compute=Input_From_Compute;
 			return Output_To_Compute;
 		}
 		
 		else
 		{
-			//Unknown error, exit
+			//Unknown error, return error message to compute node
 			System.err.println("Unknown error occured");
 			Output_To_Compute="UnknownError";
 			return Output_To_Compute;
