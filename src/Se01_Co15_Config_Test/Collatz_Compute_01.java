@@ -45,6 +45,7 @@ public class Collatz_Compute_01
 				out.println(From_User);
 			}
 			From_Server=in.readLine();
+			//Process seed here
 			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
 		}
 	}
