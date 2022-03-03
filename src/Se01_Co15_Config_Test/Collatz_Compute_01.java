@@ -32,8 +32,13 @@ public class Collatz_Compute_01
 		
 		BufferedReader stdIn=new BufferedReader(new InputStreamReader(System.in));
 		String From_Server;
-		String From_User;
-		
+		String From_User; //Need new name for this variable obvs
+		String Raw_Node_Id="";
+		String Raw_Seed_Status="";
+		String Raw_Current_Seed="";
+		int Node_Id=0;
+		int Seed_Status=0;
+		int Current_Seed=0;
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
 		
 		while(true)
@@ -46,6 +51,26 @@ public class Collatz_Compute_01
 			}
 			From_Server=in.readLine();
 			//Process seed here
+			
+			for(int a=0;a<=2;a++)
+			{
+				Raw_Node_Id+=From_User.charAt(a);
+			}
+			Node_Id=Integer.valueOf(Raw_Node_Id);
+			
+			for(int b=3;b<=5;b++)
+			{
+				Raw_Seed_Status+=From_User.charAt(b);
+			}
+			Seed_Status=Integer.valueOf(Raw_Seed_Status);
+			
+			for(int c=6;c<=14;c++)
+			{
+				Raw_Current_Seed+=From_User.charAt(c);
+			}
+			Current_Seed=Integer.valueOf(Raw_Current_Seed);
+			
+			
 			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
 		}
 	}

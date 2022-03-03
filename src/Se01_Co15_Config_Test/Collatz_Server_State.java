@@ -60,7 +60,7 @@ public class Collatz_Server_State
 		}
 		Seed_Status=Integer.valueOf(Raw_Seed_Status);
 		
-		for(int d=13;d<=21;d++)//Might not need this for input
+		for(int d=6;d<=14;d++)//Might not need this for input
 		{
 			Raw_Current_Seed+=Input_From_Compute.charAt(d);
 		}
