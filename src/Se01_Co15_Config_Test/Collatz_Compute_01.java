@@ -46,6 +46,7 @@ public class Collatz_Compute_01
 			From_User=stdIn.readLine();
 			if(From_User!=null)
 			{
+				//Send To Server
 				System.out.println(Compute_Node_Id+" sending "+From_User+" to Control Node");
 				out.println(From_User);
 			}
@@ -69,6 +70,7 @@ public class Collatz_Compute_01
 				Raw_Current_Seed+=From_User.charAt(c);
 			}
 			Current_Seed=Integer.valueOf(Raw_Current_Seed);
+			
 			
 			
 			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");

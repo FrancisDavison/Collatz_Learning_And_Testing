@@ -13,7 +13,7 @@ public class Collatz_Compute_03
 		String Compute_Node_Id="Collatz_Compute_03";
 		try
 		{
-			Compute_Socket=new Socket(Control_Name, Control_Socket_Num);
+			Compute_Socket=new Socket(Control_Name,Control_Socket_Num);
 			out=new PrintWriter(Compute_Socket.getOutputStream(), true);
 			in=new BufferedReader(new InputStreamReader(Compute_Socket.getInputStream()));
 		}
