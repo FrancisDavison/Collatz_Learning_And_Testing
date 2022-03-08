@@ -71,7 +71,10 @@ public class Collatz_Compute_01
 			}
 			Current_Seed=Integer.valueOf(Raw_Current_Seed);
 			
-			
+			if(Seed_Status==900)
+			{
+				
+			}
 			
 			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
 		}
