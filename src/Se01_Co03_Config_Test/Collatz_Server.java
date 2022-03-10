@@ -1,8 +1,8 @@
 package Se01_Co03_Config_Test;
 import java.io.*;
 import java.net.*;
-import java.util.Arrays;
-import java.util.Scanner;
+//import java.util.Arrays;
+//import java.util.Scanner;
 public class Collatz_Server
 {
 	public static void main(String args[]) throws IOException
