@@ -6,6 +6,7 @@ public class Collatz_Server_State
 	private boolean Current_Access=false;
 	private int Waiting=0;
 	private int[][] Seed_Table;
+	private int[] Live_Index=new int[16]; //use 16 as that is how many Pi's I have available
 	//Constructor
 	Collatz_Server_State(int[][] Seed_Table_In)
 	{
@@ -38,20 +39,19 @@ public class Collatz_Server_State
 	//Issue seed to thread that currently has lock
 	public synchronized String ProcessInput(String Input_From_Compute)
 	{
-		String Output_To_Compute=null;
+		String Output_To_Compute="";
 		String Raw_Node_Id="";
 		String Raw_Seed_Status="";
 		String Raw_Current_Seed="";
 		int Node_Id=0;
 		int Seed_Status=0;
 		int Current_Seed=0;
-		int[] Live_Index=new int[16]; //use 16 as that is how many Pi's I have available
 		
 		for(int a=0;a<=2;a++)
 		{
 			Raw_Node_Id+=Input_From_Compute.charAt(a);
 		}
-		Node_Id=Integer.valueOf(Raw_Node_Id);
+		Node_Id=Integer.valueOf(Raw_Node_Id)-900;
 		
 		for(int b=3;b<=5;b++)
 		{
@@ -63,7 +63,7 @@ public class Collatz_Server_State
 		{
 			Raw_Current_Seed+=Input_From_Compute.charAt(d);
 		}
-		Current_Seed=Integer.valueOf(Raw_Current_Seed);
+		Current_Seed=Integer.valueOf(Raw_Current_Seed)-900000000;
 		
 		if(Seed_Status==900)
 		{
@@ -81,7 +81,7 @@ public class Collatz_Server_State
 			}
 			Current_Seed=Seed_Table[Node_Id-1][Live_Index[Node_Id-1]];
 			Live_Index[Node_Id-1]+=1;
-			Output_To_Compute=(String.valueOf(Node_Id))+(String.valueOf(Seed_Status))+(String.valueOf(Current_Seed));
+			Output_To_Compute=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status))+(String.valueOf(Current_Seed+900000000));
 			return Output_To_Compute;
 		}
 		
