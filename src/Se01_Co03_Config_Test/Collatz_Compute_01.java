@@ -40,7 +40,7 @@ public class Collatz_Compute_01
 		int Seed_Status=0;
 		int Current_Seed=0;
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
-		
+		//Wait
 		while(true)
 		{
 			From_User=stdIn.readLine();
@@ -71,10 +71,6 @@ public class Collatz_Compute_01
 			}
 			Current_Seed=Integer.valueOf(Raw_Current_Seed);
 			
-			if(Seed_Status==900)
-			{
-				
-			}
 			
 			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
 		}
