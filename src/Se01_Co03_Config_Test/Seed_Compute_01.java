@@ -5,7 +5,7 @@ public class Seed_Compute_01
 {
 	public static boolean Seed_Compute(int Seed)
 	{
-		String File_Path=".\\RemoteSeedTest\\"+String.valueOf(Seed)+".csv";
+		String File_Path=".\\Se1_Co03_Config_Output_Test\\"+String.valueOf(Seed)+".csv";
 		File file = new File(File_Path);
 		try
 		{

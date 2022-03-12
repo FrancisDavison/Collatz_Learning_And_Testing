@@ -43,7 +43,7 @@ public class Collatz_Compute_03
 				out.println(From_User);
 			}
 			From_Server=in.readLine();
-			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Contol Node");
+			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
 		}
 	}
 }
