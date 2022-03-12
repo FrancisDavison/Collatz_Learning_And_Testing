@@ -1,8 +1,8 @@
 package Se01_Co03_Config_Test;
 public class Collatz_Server_State
 {
-	//private Collatz_Server_State Shared_Objecct;
-	//private String Thread_Name;
+	private Collatz_Server_State Shared_Objecct;
+	private String Thread_Name;
 	private boolean Current_Access=false;
 	private int Waiting=0;
 	private int[][] Seed_Table;

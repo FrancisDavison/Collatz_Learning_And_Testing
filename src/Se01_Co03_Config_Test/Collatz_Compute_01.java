@@ -3,7 +3,7 @@ import java.io.*;
 import java.net.*;
 public class Collatz_Compute_01
 {
-	public static void main(String args[]) throws IOException
+	public static void main(String args[]) throws IOException, InterruptedException
 	{
 		Socket Compute_Socket=null;
 		PrintWriter out=null;
@@ -17,61 +17,104 @@ public class Collatz_Compute_01
 			out=new PrintWriter(Compute_Socket.getOutputStream(), true);
 			in=new BufferedReader(new InputStreamReader(Compute_Socket.getInputStream()));
 		}
-		
 		catch(UnknownHostException e)
 		{
 			System.err.println("Don't know about host: localhost");
 			System.exit(1);
 		}
-		
 		catch(IOException e)
 		{
 			System.err.println("Couldn't get the I/O connection to: "+Control_Socket_Num);
 			System.exit(1);
 		}
+		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
 		
+		//Move variables to top
 		BufferedReader stdIn=new BufferedReader(new InputStreamReader(System.in));
-		String From_Server;
-		String From_User; //Need new name for this variable obvs
-		String Raw_Node_Id="";
-		String Raw_Seed_Status="";
-		String Raw_Current_Seed="";
+		boolean Compute_Started=false;
+		boolean Initial_Message=true;
 		int Node_Id=0;
 		int Seed_Status=0;
 		int Current_Seed=0;
-		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
-		//Wait
-		while(true)
+		String From_Server;
+		String Initial_To_Server="901933900000000";
+		String To_Server="";
+		String User_In;
+		String Raw_Node_Id="";
+		String Raw_Seed_Status="";
+		String Raw_Current_Seed="";
+		
+		while(!Compute_Started)
 		{
-			From_User=stdIn.readLine();
-			if(From_User!=null)
+			System.out.println("Start?: ");
+			User_In=stdIn.readLine();
+			while(User_In!="0"&&User_In!="1")
 			{
-				//Send To Server
-				System.out.println(Compute_Node_Id+" sending "+From_User+" to Control Node");
-				out.println(From_User); //Sends user input to server?
+				System.out.println("Invalid Input, 1 for start, 0 for exit");
+				User_In=stdIn.readLine();
 			}
-			From_Server=in.readLine(); //Recieves message from server?
-			
-			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
+			if(User_In=="0")
+			{
+				System.out.println("Quitting in 5 seconds");
+				System.exit(5);
+			}
+			if(User_In=="1")
+			{
+				Compute_Started=true;
+			}
 		}
-	}
-}
-/*
-  			for(int a=0;a<=2;a++)
+		
+		while(Compute_Started)
+		{
+			if(Initial_Message==true)
 			{
-				Raw_Node_Id+=From_User.charAt(a);
+				To_Server=Initial_To_Server;
+				Initial_Message=false;
+				System.out.println(Compute_Node_Id+" sending initial "+To_Server+" to Control Node");
+				out.println(To_Server);
 			}
-			Node_Id=Integer.valueOf(Raw_Node_Id);
+			else
+			{
+				System.out.println(Compute_Node_Id+" sending "+To_Server+" to Control Node");
+				out.println(To_Server);
+			}
+			From_Server=in.readLine();
+			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
+			
+			for(int a=0;a<=2;a++)
+			{
+				Raw_Node_Id+=From_Server.charAt(a);
+			}
+			Node_Id=Integer.valueOf(Raw_Node_Id)-900;
+			if(Node_Id!=1)
+			{
+				//Invalid Node Id, return message
+			}
 			
 			for(int b=3;b<=5;b++)
 			{
-				Raw_Seed_Status+=From_User.charAt(b);
+				Raw_Seed_Status+=From_Server.charAt(b);
 			}
-			Seed_Status=Integer.valueOf(Raw_Seed_Status);
+			Seed_Status=Integer.valueOf(Raw_Seed_Status)-900;
 			
-			for(int c=6;c<=14;c++)
+			for(int d=6;d<=14;d++)
 			{
-				Raw_Current_Seed+=From_User.charAt(c);
+				Raw_Current_Seed+=From_Server.charAt(d);
 			}
-			Current_Seed=Integer.valueOf(Raw_Current_Seed);
-*/
+			Current_Seed=Integer.valueOf(Raw_Current_Seed)-900000000;
+			
+			if(Seed_Compute_01.Seed_Compute(Current_Seed))
+			{
+				//Compute success, new seed
+				Seed_Status=11;
+				To_Server=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
+			}
+			else
+			{
+				//Compute fail, same seed
+				Seed_Status=0;
+				To_Server=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
+			}
+		}
+	}
+}

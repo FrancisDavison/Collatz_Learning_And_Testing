@@ -17,13 +17,11 @@ public class Collatz_Compute_02
 			out=new PrintWriter(Compute_Socket.getOutputStream(), true);
 			in=new BufferedReader(new InputStreamReader(Compute_Socket.getInputStream()));
 		}
-		
 		catch(UnknownHostException e)
 		{
 			System.err.println("Don't know about host: localhost");
 			System.exit(1);
 		}
-		
 		catch(IOException e)
 		{
 			System.err.println("Couldn't get the I/O connection to: "+Control_Socket_Num);
@@ -33,6 +31,7 @@ public class Collatz_Compute_02
 		BufferedReader stdIn=new BufferedReader(new InputStreamReader(System.in));
 		String From_Server;
 		String From_User;
+		
 		
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
 		
