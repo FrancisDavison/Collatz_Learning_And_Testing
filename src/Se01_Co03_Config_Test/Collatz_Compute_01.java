@@ -76,7 +76,7 @@ public class Collatz_Compute_01
 			}
 			From_Server=in.readLine();
 			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
-			
+			Thread.sleep(1000);
 			for(int a=0;a<=2;a++)
 			{
 				Raw_Node_Id+=From_Server.charAt(a);
