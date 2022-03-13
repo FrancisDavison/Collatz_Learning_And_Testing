@@ -10,9 +10,7 @@ public class Seed_Compute_01
 		try
 		{
 			FileWriter OutputFile = new FileWriter(file); //Create FileWriter object with file as parameter
-			
 			CSVWriter writer = new CSVWriter(OutputFile,',',CSVWriter.NO_QUOTE_CHARACTER,CSVWriter.DEFAULT_ESCAPE_CHARACTER,CSVWriter.DEFAULT_LINE_END); //Create CSVWriter object with filewriter object as parameter, comma as seperator, no quotes on data, and default escape characters and line ends
-			
 			String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
 			writer.writeNext(header); //Add Header to CSV
 			
