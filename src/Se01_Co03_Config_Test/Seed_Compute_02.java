@@ -3,8 +3,13 @@ import java.io.*;
 import com.opencsv.*;
 public class Seed_Compute_02
 {
-	public static boolean Seed_Compute(int Seed)
+	public static String Compute_Engine_02(String Message) throws InterruptedException
 	{
+		Thread.sleep(3000);
+		return Message;
+	}
+}
+/*
 		String File_Path=".\\RemoteSeedTest\\"+String.valueOf(Seed)+".csv";
 		File file = new File(File_Path);
 		try
@@ -45,5 +50,4 @@ public class Seed_Compute_02
 			e.printStackTrace();
 			return false;
 		}
-	}
-}
+*/

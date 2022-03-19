@@ -3,7 +3,7 @@ import java.io.*;
 import java.net.*;
 public class Collatz_Compute_03
 {
-	public static void main(String args[]) throws IOException
+	public static void main(String args[]) throws IOException, InterruptedException
 	{
 		Socket Compute_Socket=null;
 		PrintWriter out=null;
@@ -29,18 +29,19 @@ public class Collatz_Compute_03
 		}
 		
 		BufferedReader stdIn=new BufferedReader(new InputStreamReader(System.in));
-		String From_Server;
-		String From_User;
+		String From_Server="903933900000000";
+		String From_Compute=null;
 		
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
-		
+		Thread.sleep(20000);
 		while(true)
 		{
-			From_User=stdIn.readLine();
-			if(From_User!=null)
+			From_Compute=Seed_Compute_01.Compute_Engine_01(From_Server);
+			if(From_Compute!=null)
 			{
-				System.out.println(Compute_Node_Id+" sending "+From_User+" to Control Node");
-				out.println(From_User);
+				//check formatting here
+				System.out.println(Compute_Node_Id+" sending "+From_Compute+" to Control Node");
+				out.println(From_Compute);
 			}
 			From_Server=in.readLine();
 			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");

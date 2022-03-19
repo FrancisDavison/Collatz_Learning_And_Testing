@@ -3,9 +3,11 @@ import java.io.*;
 import com.opencsv.*;
 public class Seed_Compute_01
 {
-	public static boolean Seed_Compute(int Seed)
+	public static String Compute_Engine_01(String Message) throws InterruptedException
 	{
-		String File_Path=".\\Se1_Co03_Config_Output_Test\\"+String.valueOf(Seed)+".csv";
+		Thread.sleep(3000);
+		int Current_Seed=0;
+		String File_Path=".\\Se1_Co03_Config_Output_Test\\"+String.valueOf(Current_Seed)+".csv";
 		File file = new File(File_Path);
 		try
 		{
@@ -14,8 +16,8 @@ public class Seed_Compute_01
 			String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
 			writer.writeNext(header); //Add Header to CSV
 			
-			int This_Term=Seed; //Create and initialise This_Term variable for tracking current seed number
-			String[] Seed_Data_Temp = {String.valueOf(Seed),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
+			int This_Term=Current_Seed; //Create and initialise This_Term variable for tracking current seed number
+			String[] Seed_Data_Temp = {String.valueOf(Current_Seed),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
 			writer.writeNext(Seed_Data_Temp); //Write Seed_Data_Temp array to CSV
 			String[] Intermediary_Data_Temp={"",""}; //Create Intermediary_Data_Temp array and leave empty so it can be used for all intermediary values later
 			while(This_Term!=1)
@@ -36,12 +38,14 @@ public class Seed_Compute_01
 				}
 			}
 			writer.close();
-			return true;
+			//Re-construct message here
+			return Message;
 		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
-			return false;
+			//Re-construct message here
+			return Message;
 		}
 	}
 }
