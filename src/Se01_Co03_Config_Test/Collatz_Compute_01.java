@@ -34,6 +34,8 @@ public class Collatz_Compute_01
 		
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
 		
+		String Message_Current="";
+		
 		while(true)
 		{
 			From_User=stdIn.readLine();
