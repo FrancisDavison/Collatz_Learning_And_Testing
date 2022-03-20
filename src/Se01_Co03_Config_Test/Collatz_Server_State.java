@@ -57,7 +57,7 @@ public class Collatz_Server_State
 		{
 			Raw_Seed_Status+=Input_From_Compute.charAt(b);
 		}
-		Seed_Status=Integer.valueOf(Raw_Seed_Status);
+		Seed_Status=Integer.valueOf(Raw_Seed_Status)-900;
 		
 		for(int d=6;d<=14;d++)//Might not need this for input
 		{
@@ -72,23 +72,28 @@ public class Collatz_Server_State
 			return Output_To_Compute;
 		}
 		
-		if(Seed_Status==911||Seed_Status==933)
+		if(Seed_Status==11||Seed_Status==33)
 		{
 			//Previous compute passed, issue next seed
-			if(Seed_Status==933)
+			if(Seed_Status==33)
 			{
-				Seed_Status=911;
+				Seed_Status=11;
 			}
 			Current_Seed=Seed_Table[Node_Id-1][Live_Index[Node_Id-1]];
+			if(Current_Seed==-1)
+			{
+				//Compute for this node is complete, send message (code 999) to compute node to stop requesting seeds
+				Output_To_Compute=(String.valueOf(Node_Id+900))+(String.valueOf(999))+(String.valueOf(900000000));
+				return Output_To_Compute;
+			}
 			Live_Index[Node_Id-1]+=1;
-			Output_To_Compute=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status))+(String.valueOf(Current_Seed+900000000));
+			Output_To_Compute=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
 			return Output_To_Compute;
 		}
 		
-		if(Seed_Status==922)
+		if(Seed_Status==22)
 		{
 			//Invalid message received, request same message again
-			Output_To_Compute=Input_From_Compute;
 			return Output_To_Compute;
 		}
 		

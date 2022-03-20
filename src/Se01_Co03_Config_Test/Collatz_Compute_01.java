@@ -29,27 +29,57 @@ public class Collatz_Compute_01
 		}
 		
 		BufferedReader stdIn=new BufferedReader(new InputStreamReader(System.in));
-		String From_Server=null;
+		String To_Compute=null;
 		String From_Compute=null;
-		boolean initial=true;
+		String To_Server=null;
+		String Exit=null;
+		boolean Initial=true;
+		boolean Update_To_Server=true;
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
 		Thread.sleep(20000); //this stops compute from starting until all nodes can be initialised
 		while(true)
 		{
-			if(initial=true)
+			if(Initial=true)
 			{
-				From_Server="901933900000000";
-				initial=false;
+				To_Compute="901933900000000";
+				Initial=false;
 			}
-			From_Compute=Seed_Compute_01.Compute_Engine_01(From_Server);
-			if(From_Compute!=null)
+			From_Compute=Seed_Compute_01.Compute_Engine_01(To_Compute);
+			while(From_Compute=="999"||From_Compute=="988")
+			{
+				//Final seed complete, ask for user input here and just wait
+				if(From_Compute=="999")
+				{
+					System.out.println("Compute has finished, exit now?");
+				}
+				if(From_Compute=="988")
+				{
+					System.out.println("Unknown error occured, exit now?");
+				}
+				Exit=stdIn.readLine();
+				if(Exit=="Yes"||Exit=="yes")
+				{
+					System.out.println("Feature coming soon, please terminate process manually");
+					//OPTIONAL: Find a way to disconnect the compute nodes without crashing the server
+				}
+			}
+			if(From_Compute=="922")
+			{
+				Update_To_Server=false;
+			}
+			if(Update_To_Server)
+			{
+				To_Server=From_Compute;
+			}
+			Update_To_Server=true;
+			if(To_Server!=null)
 			{
 				//check formatting here
-				System.out.println(Compute_Node_Id+" sending "+From_Compute+" to Control Node");
-				out.println(From_Compute);
+				System.out.println(Compute_Node_Id+" sending "+To_Server+" to Control Node");
+				out.println(To_Server);
 			}
-			From_Server=in.readLine();
-			System.out.println(Compute_Node_Id+" recieved "+From_Server+" from Control Node");
+			To_Compute=in.readLine();
+			System.out.println(Compute_Node_Id+" recieved "+To_Compute+" from Control Node");
 		}
 	}
 }
