@@ -5,7 +5,7 @@ public class Seed_Compute_02
 {
 	public static String Compute_Engine_02(String Message_In) throws InterruptedException
 	{
-		Thread.sleep(500);
+		//Thread.sleep(10);
 		boolean Final_Seed=false;
 		int Node_Id=0;
 		int Seed_Status=0;
