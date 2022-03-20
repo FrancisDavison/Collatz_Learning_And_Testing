@@ -12,7 +12,6 @@ public class Seed_Compute_01
 		int Current_Seed=0;
 		int User_In=0;
 		String Message_Out="";
-		String File_Path=".\\Se1_Co03_Config_Output_Test\\"+String.valueOf(Current_Seed)+".csv";
 		String Raw_User_In;
 		String Raw_Node_Id="";
 		String Raw_Seed_Status="";
@@ -48,6 +47,7 @@ public class Seed_Compute_01
 		if(Seed_Status==00||Seed_Status==11)
 		{
 			//Compute here
+			String File_Path=".\\Se1_Co03_Config_Output_Test\\"+String.valueOf(Current_Seed)+".csv";
 			File file = new File(File_Path);
 			try
 			{
@@ -79,12 +79,14 @@ public class Seed_Compute_01
 				}
 				writer.close();
 				//Re-construct message here
+				Message_Out=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
 				return Message_Out;
 			}
 			catch(IOException e)
 			{
 				e.printStackTrace();
 				//Re-construct message here
+				Message_Out=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
 				return Message_Out;
 			}
 		}

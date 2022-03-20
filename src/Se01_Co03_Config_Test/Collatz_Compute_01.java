@@ -33,45 +33,48 @@ public class Collatz_Compute_01
 		String From_Compute=null;
 		String To_Server=null;
 		String Exit=null;
-		boolean Initial=true;
+		int Initial=1;
 		boolean Update_To_Server=true;
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
-		Thread.sleep(20000); //this stops compute from starting until all nodes can be initialised
+		//Thread.sleep(5000); //this stops compute from starting until all nodes can be initialised
 		while(true)
 		{
-			if(Initial=true)
+			if(Initial==1)
 			{
-				To_Compute="901933900000000";
-				Initial=false;
+				To_Server="901933900000000";
+				Initial=0;
 			}
-			From_Compute=Seed_Compute_01.Compute_Engine_01(To_Compute);
-			while(From_Compute=="999"||From_Compute=="988")
+			else
 			{
-				//Final seed complete, ask for user input here and just wait
-				if(From_Compute=="999")
+				From_Compute=Seed_Compute_01.Compute_Engine_01(To_Compute);
+				while(From_Compute=="999"||From_Compute=="988")
 				{
-					System.out.println("Compute has finished, exit now?");
+					//Final seed complete, ask for user input here and just wait
+					if(From_Compute=="999")
+					{
+						System.out.println("Compute has finished, exit now?");
+					}
+					if(From_Compute=="988")
+					{
+						System.out.println("Unknown error occured, exit now?");
+					}
+					Exit=stdIn.readLine();
+					if(Exit=="Yes"||Exit=="yes")
+					{
+						System.out.println("Feature coming soon, please terminate process manually");
+						//OPTIONAL: Find a way to disconnect the compute nodes without crashing the server
+					}
 				}
-				if(From_Compute=="988")
+				if(From_Compute=="922")
 				{
-					System.out.println("Unknown error occured, exit now?");
+					Update_To_Server=false;
 				}
-				Exit=stdIn.readLine();
-				if(Exit=="Yes"||Exit=="yes")
+				if(Update_To_Server)
 				{
-					System.out.println("Feature coming soon, please terminate process manually");
-					//OPTIONAL: Find a way to disconnect the compute nodes without crashing the server
+					To_Server=From_Compute;
 				}
+				Update_To_Server=true;
 			}
-			if(From_Compute=="922")
-			{
-				Update_To_Server=false;
-			}
-			if(Update_To_Server)
-			{
-				To_Server=From_Compute;
-			}
-			Update_To_Server=true;
 			if(To_Server!=null)
 			{
 				//check formatting here
