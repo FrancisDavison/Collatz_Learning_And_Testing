@@ -54,7 +54,7 @@ public class Compute_Engine_09
 				CSVWriter writer = new CSVWriter(OutputFile,',',CSVWriter.NO_QUOTE_CHARACTER,CSVWriter.DEFAULT_ESCAPE_CHARACTER,CSVWriter.DEFAULT_LINE_END); //Create CSVWriter object with filewriter object as parameter, comma as seperator, no quotes on data, and default escape characters and line ends
 				String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
 				writer.writeNext(header); //Add Header to CSV
-				int This_Term=Current_Seed; //Create and initialise This_Term variable for tracking current seed number
+				long This_Term=Current_Seed; //Create and initialise This_Term variable for tracking current seed number
 				String[] Seed_Data_Temp = {String.valueOf(Current_Seed),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
 				writer.writeNext(Seed_Data_Temp); //Write Seed_Data_Temp array to CSV
 				String[] Intermediary_Data_Temp={"",""}; //Create Intermediary_Data_Temp array and leave empty so it can be used for all intermediary values later
