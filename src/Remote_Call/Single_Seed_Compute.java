@@ -5,7 +5,7 @@ public class Single_Seed_Compute
 {
 	public static void main(String args[])
 	{
-		int Seed=10;
+		int Seed=113383;
 		String File_Path=".\\SingleSeedOutput\\"+String.valueOf(Seed)+".csv";
 		File file = new File(File_Path);
 		try
@@ -17,7 +17,7 @@ public class Single_Seed_Compute
 			String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
 			writer.writeNext(header); //Add Header to CSV
 			
-			int This_Term=Seed; //Create and initialise This_Term variable for tracking current seed number
+			long This_Term=Seed; //Create and initialise This_Term variable for tracking current seed number
 			String[] Seed_Data_Temp = {String.valueOf(Seed),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
 			writer.writeNext(Seed_Data_Temp); //Write Seed_Data_Temp array to CSV
 			String[] Intermediary_Data_Temp={"",""}; //Create Intermediary_Data_Temp array and leave empty so it can be used for all intermediary values later
@@ -29,6 +29,7 @@ public class Single_Seed_Compute
 					Intermediary_Data_Temp[0]=String.valueOf(This_Term); //Add This_Term to Intermediary_Data_Temp array at position 0
 					Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime()); //Add nanoTime to Intermediary_Data_Temp at position 1
 					writer.writeNext(Intermediary_Data_Temp); //Write Intermediary_Data_Temp to CSV
+					System.out.println("This term: "+This_Term);
 				}
 				else //Else (If This_Term is even)
 				{
@@ -36,6 +37,7 @@ public class Single_Seed_Compute
 					Intermediary_Data_Temp[0]=String.valueOf(This_Term); //Add This_Term to Intermediary_Data_Temp array at position 0
 					Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime()); //Add nanoTime to Intermediary_Data_Temp at position 1
 					writer.writeNext(Intermediary_Data_Temp); //Write Intermediary_Data_Temp to CSV
+					System.out.println("This term: "+This_Term);
 				}
 			}
 			writer.close();
