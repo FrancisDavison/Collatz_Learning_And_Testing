@@ -1,9 +1,9 @@
 package Se01_Co15_Config_Test;
 import java.io.*;
 import com.opencsv.*;
-public class Seed_Compute_01
+public class Compute_Engine_10
 {
-	public static String Compute_Engine_01(String Message_In) throws InterruptedException
+	public static String Engine_10(String Message_In) throws InterruptedException //change
 	{
 		//Thread.sleep(10);
 		boolean Final_Seed=false;
@@ -26,13 +26,12 @@ public class Seed_Compute_01
 			Raw_Seed_Status+=Message_In.charAt(b);
 		}
 		Seed_Status=Integer.valueOf(Raw_Seed_Status)-900;
-		
 		for(int d=6;d<=14;d++)
 		{
 			Raw_Current_Seed+=Message_In.charAt(d);
 		}
 		Current_Seed=Integer.valueOf(Raw_Current_Seed)-900000000;
-		if(Node_Id!=1) //Change
+		if(Node_Id!=10) //Change
 		{
 			Message_Out=(String.valueOf(Node_Id+900))+(String.valueOf(944))+(String.valueOf(Current_Seed+900000000));
 			return Message_Out;
@@ -47,7 +46,7 @@ public class Seed_Compute_01
 		if(Seed_Status==00||Seed_Status==11)
 		{
 			//Compute here
-			String File_Path=".\\Se1_Co15_Config_Output_Test\\"+String.valueOf(Current_Seed)+"_01.csv"; //Change
+			String File_Path=".\\Se1_Co15_Config_Output_Test\\"+String.valueOf(Current_Seed)+"_10.csv"; //Change
 			File file = new File(File_Path);
 			try
 			{
@@ -55,7 +54,6 @@ public class Seed_Compute_01
 				CSVWriter writer = new CSVWriter(OutputFile,',',CSVWriter.NO_QUOTE_CHARACTER,CSVWriter.DEFAULT_ESCAPE_CHARACTER,CSVWriter.DEFAULT_LINE_END); //Create CSVWriter object with filewriter object as parameter, comma as seperator, no quotes on data, and default escape characters and line ends
 				String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
 				writer.writeNext(header); //Add Header to CSV
-				
 				int This_Term=Current_Seed; //Create and initialise This_Term variable for tracking current seed number
 				String[] Seed_Data_Temp = {String.valueOf(Current_Seed),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
 				writer.writeNext(Seed_Data_Temp); //Write Seed_Data_Temp array to CSV

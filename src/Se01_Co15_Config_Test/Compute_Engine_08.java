@@ -1,9 +1,9 @@
 package Se01_Co15_Config_Test;
 import java.io.*;
 import com.opencsv.*;
-public class Seed_Compute_09
+public class Compute_Engine_08
 {
-	public static String Compute_Engine_09(String Message_In) throws InterruptedException //change
+	public static String Engine_08(String Message_In) throws InterruptedException //change
 	{
 		//Thread.sleep(10);
 		boolean Final_Seed=false;
@@ -26,13 +26,12 @@ public class Seed_Compute_09
 			Raw_Seed_Status+=Message_In.charAt(b);
 		}
 		Seed_Status=Integer.valueOf(Raw_Seed_Status)-900;
-		
 		for(int d=6;d<=14;d++)
 		{
 			Raw_Current_Seed+=Message_In.charAt(d);
 		}
 		Current_Seed=Integer.valueOf(Raw_Current_Seed)-900000000;
-		if(Node_Id!=9) //Change
+		if(Node_Id!=8) //Change
 		{
 			Message_Out=(String.valueOf(Node_Id+900))+(String.valueOf(944))+(String.valueOf(Current_Seed+900000000));
 			return Message_Out;
@@ -47,7 +46,7 @@ public class Seed_Compute_09
 		if(Seed_Status==00||Seed_Status==11)
 		{
 			//Compute here
-			String File_Path=".\\Se1_Co15_Config_Output_Test\\"+String.valueOf(Current_Seed)+"_09.csv"; //Change
+			String File_Path=".\\Se1_Co15_Config_Output_Test\\"+String.valueOf(Current_Seed)+"_08.csv"; //Change
 			File file = new File(File_Path);
 			try
 			{
@@ -55,7 +54,6 @@ public class Seed_Compute_09
 				CSVWriter writer = new CSVWriter(OutputFile,',',CSVWriter.NO_QUOTE_CHARACTER,CSVWriter.DEFAULT_ESCAPE_CHARACTER,CSVWriter.DEFAULT_LINE_END); //Create CSVWriter object with filewriter object as parameter, comma as seperator, no quotes on data, and default escape characters and line ends
 				String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
 				writer.writeNext(header); //Add Header to CSV
-				
 				int This_Term=Current_Seed; //Create and initialise This_Term variable for tracking current seed number
 				String[] Seed_Data_Temp = {String.valueOf(Current_Seed),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
 				writer.writeNext(Seed_Data_Temp); //Write Seed_Data_Temp array to CSV
@@ -109,45 +107,3 @@ public class Seed_Compute_09
 		}
 	}
 }
-/*
-		String File_Path=".\\RemoteSeedTest\\"+String.valueOf(Seed)+".csv";
-		File file = new File(File_Path);
-		try
-		{
-			FileWriter OutputFile = new FileWriter(file); //Create FileWriter object with file as parameter
-			
-			CSVWriter writer = new CSVWriter(OutputFile,',',CSVWriter.NO_QUOTE_CHARACTER,CSVWriter.DEFAULT_ESCAPE_CHARACTER,CSVWriter.DEFAULT_LINE_END); //Create CSVWriter object with filewriter object as parameter, comma as seperator, no quotes on data, and default escape characters and line ends
-			
-			String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
-			writer.writeNext(header); //Add Header to CSV
-			
-			int This_Term=Seed; //Create and initialise This_Term variable for tracking current seed number
-			String[] Seed_Data_Temp = {String.valueOf(Seed),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
-			writer.writeNext(Seed_Data_Temp); //Write Seed_Data_Temp array to CSV
-			String[] Intermediary_Data_Temp={"",""}; //Create Intermediary_Data_Temp array and leave empty so it can be used for all intermediary values later
-			while(This_Term!=1)
-			{
-				if(This_Term%2!=0) //If This_Term is odd:
-				{
-					This_Term=(3*This_Term)+1; //Multiply This_Term by 3 and add 1
-					Intermediary_Data_Temp[0]=String.valueOf(This_Term); //Add This_Term to Intermediary_Data_Temp array at position 0
-					Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime()); //Add nanoTime to Intermediary_Data_Temp at position 1
-					writer.writeNext(Intermediary_Data_Temp); //Write Intermediary_Data_Temp to CSV
-				}
-				else //Else (If This_Term is even)
-				{
-					This_Term=This_Term/2; //Divide This_Term by 2
-					Intermediary_Data_Temp[0]=String.valueOf(This_Term); //Add This_Term to Intermediary_Data_Temp array at position 0
-					Intermediary_Data_Temp[1]=String.valueOf(System.nanoTime()); //Add nanoTime to Intermediary_Data_Temp at position 1
-					writer.writeNext(Intermediary_Data_Temp); //Write Intermediary_Data_Temp to CSV
-				}
-			}
-			writer.close();
-			return true;
-		}
-		catch(IOException e)
-		{
-			e.printStackTrace();
-			return false;
-		}
-*/

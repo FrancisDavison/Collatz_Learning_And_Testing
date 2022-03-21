@@ -46,7 +46,7 @@ public class Collatz_Compute_01
 			}
 			else
 			{
-				From_Compute=Seed_Compute_01.Compute_Engine_01(To_Compute); //Change
+				From_Compute=Compute_Engine_01.Engine_01(To_Compute); //Change
 				while(From_Compute=="999"||From_Compute=="988")
 				{
 					//Final seed complete, ask for user input here and just wait
