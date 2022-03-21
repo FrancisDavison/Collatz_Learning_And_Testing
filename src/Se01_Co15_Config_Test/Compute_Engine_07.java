@@ -5,7 +5,7 @@ public class Compute_Engine_07
 {
 	public static String Engine_07(String Message_In) throws InterruptedException //change
 	{
-		Thread.sleep(500);
+		Thread.sleep(250);
 		boolean Final_Seed=false;
 		int Node_Id=0;
 		int Seed_Status=0;

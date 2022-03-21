@@ -54,18 +54,14 @@ public class Collatz_Compute_04
 					//Final seed complete, ask for user input here and just wait
 					if(From_Compute=="999")
 					{
-						System.out.println("Compute has finished, exit now?");
+						System.out.println("Compute has finished, please terminate server process and then press enter to exit");
 					}
 					if(From_Compute=="988")
 					{
 						System.out.println("Unknown error occured, exit now?");
 					}
 					Exit=stdIn.readLine();
-					if(Exit=="Yes"||Exit=="yes")
-					{
-						System.out.println("Feature coming soon, please terminate process manually");
-						//OPTIONAL: Find a way to disconnect the compute nodes without crashing the server
-					}
+					System.exit(1);
 				}
 				if(From_Compute=="922")
 				{
