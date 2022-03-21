@@ -36,7 +36,9 @@ public class Collatz_Compute_07
 		int Initial=1;
 		boolean Update_To_Server=true;
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
-		Thread.sleep(28000); //this stops compute from starting until all nodes can be initialised
+		System.out.println("Press enter to start");
+		String Start=stdIn.readLine();
+		Thread.sleep(9000);
 		while(true)
 		{
 			if(Initial==1)

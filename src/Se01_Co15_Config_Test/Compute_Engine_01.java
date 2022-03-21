@@ -16,7 +16,7 @@ public class Compute_Engine_01
 		String Raw_Node_Id="";
 		String Raw_Seed_Status="";
 		String Raw_Current_Seed="";
-		for(int a=0;a<=2;a0++)
+		for(int a=0;a<=2;a++)
 		{
 			Raw_Node_Id+=Message_In.charAt(a);
 		}
