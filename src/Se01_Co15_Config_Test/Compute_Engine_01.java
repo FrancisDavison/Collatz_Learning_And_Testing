@@ -5,7 +5,7 @@ public class Compute_Engine_01
 {
 	public static String Engine_01(String Message_In) throws InterruptedException
 	{
-		//Thread.sleep(10);
+		Thread.sleep(500);
 		boolean Final_Seed=false;
 		int Node_Id=0;
 		int Seed_Status=0;
@@ -16,7 +16,7 @@ public class Compute_Engine_01
 		String Raw_Node_Id="";
 		String Raw_Seed_Status="";
 		String Raw_Current_Seed="";
-		for(int a=0;a<=2;a++)
+		for(int a=0;a<=2;a0++)
 		{
 			Raw_Node_Id+=Message_In.charAt(a);
 		}
