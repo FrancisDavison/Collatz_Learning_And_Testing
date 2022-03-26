@@ -36,7 +36,9 @@ public class Collatz_Compute_03
 		int Initial=1;
 		boolean Update_To_Server=true;
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
-		Thread.sleep(20000); //this stops compute from starting until all nodes can be initialised
+		System.out.println("Press enter to start");
+		String Start=stdIn.readLine();
+		Thread.sleep(13000);
 		while(true)
 		{
 			if(Initial==1)
@@ -46,24 +48,20 @@ public class Collatz_Compute_03
 			}
 			else
 			{
-				From_Compute=Seed_Compute_03.Compute_Engine_03(To_Compute); //Change
+				From_Compute=Compute_Engine_03.Engine_03(To_Compute); //Change
 				while(From_Compute=="999"||From_Compute=="988")
 				{
 					//Final seed complete, ask for user input here and just wait
 					if(From_Compute=="999")
 					{
-						System.out.println("Compute has finished, exit now?");
+						System.out.println("Compute has finished, please terminate server process and then press enter to exit");
 					}
 					if(From_Compute=="988")
 					{
 						System.out.println("Unknown error occured, exit now?");
 					}
 					Exit=stdIn.readLine();
-					if(Exit=="Yes"||Exit=="yes")
-					{
-						System.out.println("Feature coming soon, please terminate process manually");
-						//OPTIONAL: Find a way to disconnect the compute nodes without crashing the server
-					}
+					System.exit(1);
 				}
 				if(From_Compute=="922")
 				{
