@@ -13,12 +13,9 @@ public class Collatz_CSV_Int_Print
 			try
 			{
 				FileWriter OutputFile = new FileWriter(file); //Create FileWriter object with file as parameter
-				
 				CSVWriter writer = new CSVWriter(OutputFile,',',CSVWriter.NO_QUOTE_CHARACTER,CSVWriter.DEFAULT_ESCAPE_CHARACTER,CSVWriter.DEFAULT_LINE_END); //Create CSVWriter object with filewriter object as parameter, comma as seperator, no quotes on data, and default escape characters and line ends
-				
 				String[] header = {"Intermediary Value","nanoTime"}; //Define Headers
 				writer.writeNext(header); //Add Header to CSV
-				
 				int This_Term=i; //Create and initialise This_Term variable for tracking current seed number
 				String[] Seed_Data_Temp = {String.valueOf(i),String.valueOf(System.nanoTime())}; //Create Seed_Data_Temp array and add current seed value and nanoTime to array
 				writer.writeNext(Seed_Data_Temp); //Write Seed_Data_Temp array to CSV
