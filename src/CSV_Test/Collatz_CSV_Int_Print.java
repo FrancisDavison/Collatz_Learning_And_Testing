@@ -41,9 +41,11 @@ public class Collatz_CSV_Int_Print
 					}
 				}
 				writer.close();
+				System.out.println("Compute complete, find output CSV at: "+File_Path);
 			}
 			catch(IOException e)
 			{
+				System.err.println("Compute Failed, quitting now");
 				e.printStackTrace();
 			}
 		}
