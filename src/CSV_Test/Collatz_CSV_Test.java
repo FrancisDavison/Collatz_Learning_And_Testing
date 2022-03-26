@@ -1,12 +1,12 @@
 package CSV_Test;
 import java.io.*;
 import com.opencsv.*;
-public class Collatz_CSV_Int_Print
+public class Collatz_CSV_Test
 {
 	public static void main(String args[])
 	{
 		int Terms=10;
-		for(int i=2;i<=Terms;i++)
+		for(int i=2;i<=Terms+2;i++)
 		{
 			String File_Path=".\\CSVOutTest\\"+String.valueOf(i)+".csv";
 			File file = new File(File_Path);
