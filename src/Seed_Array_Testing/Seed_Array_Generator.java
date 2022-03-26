@@ -1,8 +1,8 @@
-package Se01_Co03_Config_Test;
+package Seed_Array_Testing;
 import java.util.*;
-public class Seed_Table_Generator
+public class Seed_Array_Generator
 {
-	public static int[][] Seed_Table_Engine()
+	public static void main(String args[])
 	{
 		Scanner Input_Nodes=new Scanner(System.in);
 		Scanner Input_Start_Seed=new Scanner(System.in);
@@ -10,23 +10,23 @@ public class Seed_Table_Generator
 		System.out.println("Input number of compute nodes: ");
 		int Compute_Nodes=Input_Nodes.nextInt();
 		int Count=0;
-		while(Compute_Nodes<=0||Compute_Nodes>=16)
+		while(Compute_Nodes<=0)
 		{
-			System.out.println("Number of compute nodes must be an integer, at least 1 and at most 15. Please input number of ocmpute nodes:");
+			System.out.println("Number of compute nodes must be greater than or equal to 1. Please input number of ocmpute nodes:");
 			Compute_Nodes=Input_Nodes.nextInt();
 		}
 		System.out.println("Input starting seed value: ");
 		int Start_Seed=Input_Start_Seed.nextInt();
-		while(Start_Seed<=1||Start_Seed>=1000000)
+		while(Start_Seed<=1)
 		{
-			System.out.println("Start seed must be an integer value, at least 2 and at most 1,000,000. Please input starting seed value: ");
+			System.out.println("Start seed must be an integer value larger than or equal to 2. Please input starting seed value: ");
 			Start_Seed=Input_Start_Seed.nextInt();
 		}
 		System.out.println("Input number of seeds: ");
 		int Seed_Num=Input_Seed_Num.nextInt();
-		while(Seed_Num<=1||Seed_Num>=10000000)
+		while(Seed_Num<= 1)
 		{
-			System.out.println("Number of seeds must be an integer value, at least 2 and at most 10,000,000. Please input number of seeds:");
+			System.out.println("Number of seeds must be an integer value larger than or equal to 2. Please input number of seeds:");
 			Seed_Num=Input_Seed_Num.nextInt();
 		}
 		int Rows=Compute_Nodes;
@@ -63,6 +63,6 @@ public class Seed_Table_Generator
 		Input_Nodes.close();
 		Input_Start_Seed.close();
 		Input_Seed_Num.close();
-		return Seed_Table;
+		//return Seed_Table;
 	}
 }
