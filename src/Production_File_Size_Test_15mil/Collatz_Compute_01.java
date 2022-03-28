@@ -1,7 +1,7 @@
-package Se01_Co03_Config_Test;
+package Production_File_Size_Test_15mil;
 import java.io.*;
 import java.net.*;
-public class Collatz_Compute_02
+public class Collatz_Compute_01
 {
 	public static void main(String args[]) throws IOException, InterruptedException
 	{
@@ -9,8 +9,8 @@ public class Collatz_Compute_02
 		PrintWriter out=null;
 		BufferedReader in=null;
 		int Control_Socket_Num=4545;
-		String Control_Name="localhost";
-		String Compute_Node_Id="Collatz_Compute_02"; //Change
+		String Control_Name="192.168.0.100";
+		String Compute_Node_Id="Collatz_Compute_01"; //Change
 		try
 		{
 			Compute_Socket=new Socket(Control_Name,Control_Socket_Num);
@@ -38,17 +38,17 @@ public class Collatz_Compute_02
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
 		System.out.println("Press enter to start");
 		String Start=stdIn.readLine();
-		Thread.sleep(4500);
+		Thread.sleep(15000);
 		while(true)
 		{
 			if(Initial==1)
 			{
-				To_Server="902933900000000"; //Change
+				To_Server="901933900000000"; //Change
 				Initial=0;
 			}
 			else
 			{
-				From_Compute=Compute_Engine_02.Engine_02(To_Compute); //Change
+				From_Compute=Compute_Engine_01.Engine_01(To_Compute); //Change
 				while(From_Compute=="999"||From_Compute=="988")
 				{
 					//Final seed complete, ask for user input here and just wait

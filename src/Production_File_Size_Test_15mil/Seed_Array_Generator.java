@@ -1,4 +1,4 @@
-package Se01_Co03_Config_Test;
+package Production_File_Size_Test_15mil;
 import java.util.*;
 public class Seed_Array_Generator
 {
@@ -23,10 +23,10 @@ public class Seed_Array_Generator
 			Start_Seed=Input_Start_Seed.nextInt();
 		}
 		System.out.println("Input number of seeds: ");
-		long Seed_Num=Input_Seed_Num.nextInt();
-		while(Seed_Num<=1||Seed_Num>=10000000)
+		int Seed_Num=Input_Seed_Num.nextInt();
+		while(Seed_Num<=1||Seed_Num>=15000001)
 		{
-			System.out.println("Number of seeds must be an integer value, at least 2 and at most 10,000,000. Please input number of seeds:");
+			System.out.println("Number of seeds must be an integer value, at least 2 and at most 15,000,000. Please input number of seeds:");
 			Seed_Num=Input_Seed_Num.nextInt();
 		}
 		int Rows=Compute_Nodes;

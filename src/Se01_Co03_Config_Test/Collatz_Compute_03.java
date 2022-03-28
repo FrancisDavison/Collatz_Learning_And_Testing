@@ -38,7 +38,7 @@ public class Collatz_Compute_03
 		System.out.println("Initialised "+Compute_Node_Id+" I/O connections");
 		System.out.println("Press enter to start");
 		String Start=stdIn.readLine();
-		Thread.sleep(13000);
+		Thread.sleep(4000);
 		while(true)
 		{
 			if(Initial==1)
