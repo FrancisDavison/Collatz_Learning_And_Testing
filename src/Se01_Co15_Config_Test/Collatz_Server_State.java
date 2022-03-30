@@ -86,6 +86,12 @@ public class Collatz_Server_State
 				Output_To_Compute=(String.valueOf(Node_Id+900))+(String.valueOf(999))+(String.valueOf(900000000));
 				return Output_To_Compute;
 			}
+			if(Current_Seed==0)
+			{
+				//Compute has finished, 0 is just empty cell
+				Output_To_Compute=(String.valueOf(Node_Id+900))+(String.valueOf(999))+(String.valueOf(900000000));
+				return Output_To_Compute;
+			}
 			Live_Index[Node_Id-1]+=1;
 			Output_To_Compute=(String.valueOf(Node_Id+900))+(String.valueOf(Seed_Status+900))+(String.valueOf(Current_Seed+900000000));
 			return Output_To_Compute;
